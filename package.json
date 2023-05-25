@@ -1,0 +1,12 @@
+{
+  "name": "qap2-fsjs",
+  "version": "1.0.0",
+  "description": "multi-route http server that displays html files. For each route an event will be emitted to log the server activity, this logging will be written to both disk and the console.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
