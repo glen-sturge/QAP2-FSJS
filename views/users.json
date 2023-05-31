@@ -1,0 +1,7 @@
+{
+  "users": [
+    { "id": 1, "name": "Andy Andrews" },
+    { "id": 2, "name": "Billy Bob" },
+    { "id": 3, "name": "Candice Collins" }
+  ]
+}
