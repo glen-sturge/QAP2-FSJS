@@ -1,7 +1,7 @@
 // require/enable http module
 const http = require("http");
 const logger = require("./logger");
-const fs = require("fs");
+const serveFile = require("./serveFile");
 
 const lg = new logger();
 lg.listenForLog();
@@ -63,8 +63,52 @@ const server = http.createServer((req, res) => {
       //set response status code
       res.statusCode = 200;
       // set path for file
+      path += "users.html";
+      logMessage = "Connected to users page!";
+      // emit log event
+      lg.emit("log", path, "INFO", logMessage, clientIP);
+      // get the file, compose response
+      serveFile(path, res);
+      break;
+    case "/users.json":
+      //set response status code
+      res.statusCode = 200;
+      // set path for file
       path += "users.json";
-      logMessage = "Connected to users.json page!";
+      logMessage = "users.json accessed!";
+      // emit log event
+      lg.emit("log", path, "INFO", logMessage, clientIP);
+      // get the file, compose response
+      serveFile(path, res);
+      break;
+    case "/users.js":
+      //set response status code
+      res.statusCode = 200;
+      // set path for file
+      path = "./script/users.js";
+      logMessage = "users.js accessed!";
+      // emit log event
+      lg.emit("log", path, "INFO", logMessage, clientIP);
+      // get the file, compose response
+      serveFile(path, res);
+      break;
+    case "/news":
+      //set response status code
+      res.statusCode = 200;
+      // set path for file
+      path += "news.html";
+      logMessage = "Connected to news page!";
+      // emit log event
+      lg.emit("log", path, "INFO", logMessage, clientIP);
+      // get the file, compose response
+      serveFile(path, res);
+      break;
+    case "/style":
+      //set response status code
+      res.statusCode = 200;
+      // set path for file
+      path = "./css/style.css";
+      logMessage = "css accessed";
       // emit log event
       lg.emit("log", path, "INFO", logMessage, clientIP);
       // get the file, compose response
@@ -83,22 +127,6 @@ const server = http.createServer((req, res) => {
       break;
   }
 });
-
-const serveFile = (path, res) => {
-  const navigation = fs.readFileSync("./views/navigation.html", "utf-8");
-
-  fs.readFile(path, (error, data) => {
-    if (error) {
-      console.error("A problem was encountered loading the file: " + error);
-      res.statusCode = 503;
-      res.end();
-    } else {
-      res.writeHead(res.statusCode, { "Content-Type": "text/html" });
-      res.write(navigation + data);
-      res.end();
-    }
-  });
-};
 
 // // a count for connections since server restart
 // let connectionCount = 0;

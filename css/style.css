@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;800&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #444;
+}
+
+.header-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inner-header-wrapper {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+}
+
+.logo span {
+  font-weight: 900;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  margin: 20px;
+  flex: 1;
+  /* Note to self, REMEMBER, The flex: 1 property on the main element makes it take up the remaining vertical space, pushing the footer to the bottom of the page. */
+}
+
+.content-wrapper {
+  color: #fff;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content-wrapper a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 4px 20px 20px 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer p a {
+  text-decoration: none;
+  color: white;
+}
